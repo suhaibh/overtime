@@ -7,7 +7,7 @@ RSpec.describe Post, type: :model do
   	end
 
   	it "can be created" do
-  		expect(@post).to be_valid
+      expect(@post).to be_valid
   	end
 
   	it "requires rationale to be present" do
