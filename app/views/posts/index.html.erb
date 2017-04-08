@@ -1,6 +1,22 @@
 <h2>Posts Index</h2>
 
-<% @posts.each do |post| %>
-	<%= post.rationale %>
-	<%= post.date %>
-<% end %>
+<table class="table table-striped table-hover table-bordered">
+	<thead>
+		<tr>
+			<th>Post #</th>
+			<th>Name</th>
+			<th>Rationale</th>
+			<th>Date</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @posts.each do |post| %>
+			<tr>
+				<td><%= post.id %></td>
+				<td><%= post.user.full_name %></td>
+				<td><%= truncate(post.rationale) %></td>
+				<td><%= post.date %> </td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>

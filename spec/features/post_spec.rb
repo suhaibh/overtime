@@ -5,11 +5,11 @@ describe 'navigate' do
   	user = User.create(email: "jon@example.com", password: "password", password_confirmation: "password",
   						first_name: "Jon", last_name: "Snow")
   	login_as(user, scope: :user)
+    visit posts_path
   end
   describe 'index' do
     
     it 'can be reached successfully' do
-    	visit posts_path
     	expect(page.status_code).to eq(200)
     	expect(page).to have_content("Posts Index")
     end
