@@ -2,8 +2,7 @@ require 'rails_helper'
 
 describe 'navigate' do
   before do
-  	user = User.create(email: "jon@example.com", password: "password", password_confirmation: "password",
-  						first_name: "Jon", last_name: "Snow")
+  	user = FactoryGirl.create(:user)
   	login_as(user, scope: :user)
   end
   describe 'homepage' do
