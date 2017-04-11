@@ -63,4 +63,39 @@ describe 'navigate' do
   		expect(page).to have_selector('form')
   	end
   end
+
+  describe "edit posts" do
+    before do
+      @post = FactoryGirl.create(:post)
+      visit edit_post_path(@post)
+    end
+
+    it "has an edit page that can be reached" do
+      expect(page.status_code).to eq(200)
+      expect(page).to have_selector('form')
+    end
+
+    it "can be reached through the index page" do
+      visit posts_path
+      click_link("edit-post-#{@post.id}")
+
+      expect(page).to have_selector('form')
+    end
+
+    it "can update the post" do
+      fill_in "post[rationale]", with: "Updated post"
+      fill_in "post[date]", with: Date.yesterday
+      click_button "Save"
+
+      expect(page).to have_content(/Updated post|#{Date.yesterday}/)
+    end
+
+    it "should have rationale present" do
+      fill_in "post[rationale]", with: ""
+      fill_in "post[date]", with: Date.yesterday
+      click_button "Save"
+
+      expect(page).to have_selector('form')
+    end
+  end
 end

@@ -21,6 +21,17 @@ class PostsController < ApplicationController
 	def show
 	end
 
+	def edit
+	end
+
+	def update
+		if @post.update(post_params)
+			redirect_to @post
+		else
+			render 'edit'
+		end
+	end
+
 	private
 		def set_post
 			@post = Post.find(params[:id])
