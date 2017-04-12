@@ -98,4 +98,5 @@ describe 'navigate' do
       expect(page).to have_selector('form')
     end
   end
+
 end
