@@ -98,5 +98,19 @@ describe 'navigate' do
       expect(page).to have_selector('form')
     end
   end
+  
+  describe 'delete posts' do
+    before do
+      @post = FactoryGirl.create(:post)
+    end
+
+    it "should delete post from index" do
+      visit posts_path
+      click_link("delete-post-#{@post.id}")
+
+      expect(Post.count).to eq(0)
+      expect(current_path).to eq(posts_path)
+    end
+  end
 
 end
