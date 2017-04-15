@@ -12,7 +12,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise', '4.2'
-
+gem "gritter", "1.2.0"
 
 group :development, :test do
   gem 'byebug'

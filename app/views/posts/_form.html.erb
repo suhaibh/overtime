@@ -1,4 +1,11 @@
-<%= form_for(@post) html: {class: 'form-horizontal'} do |f| %>
+<%= form_for @post do |f| %>
+	
+	<% if @post.errors.any? %>
+		<% @post.errors.full_messages.each do |error| %>
+			<%= js add_gritter(error, image: :error, title: "Form Errors", sticky: false, time: 4000)%>
+		<% end %>
+	<% end %>
+
 	<div class="form-group">
 		<%= f.label :rationale, class: 'label-control' %>
 		<%= f.text_area :rationale, class: 'form-control' %>

@@ -13,6 +13,7 @@ class PostsController < ApplicationController
 		@post = current_user.posts.build(post_params)
 		if @post.save
 			redirect_to @post
+			flash[:notice] = "Post successfully created"
 		else
 			render 'new'
 		end
@@ -27,6 +28,7 @@ class PostsController < ApplicationController
 	def update
 		if @post.update(post_params)
 			redirect_to @post
+			flash[:notice] = "Post successfully updated"
 		else
 			render 'edit'
 		end
@@ -35,6 +37,7 @@ class PostsController < ApplicationController
 	def destroy
 		@post.destroy
 		redirect_to posts_path
+		flash[:notice] = "Post successfully deleted"
 	end
 
 	private

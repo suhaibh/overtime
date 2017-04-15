@@ -1,16 +1,18 @@
 <ul class="nav nav-tabs">
   <li role="presentation" class="<%= active?(root_path) %>"><%= link_to "Home", root_path %></li>
-  <li role="presentation" class="<%= active?(new_post_path) %>"><%= link_to "New Post", new_post_path %></li>
-  <li role="presentation" class="<%= active?(posts_path) %>"><%= link_to "Posts", posts_path %></li>
-  
-  <li class="pull-right dropdown">  
-  	<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-      Account <span class="caret"></span>
-    </a>
-  	<ul class="dropdown-menu">
-  		<li><%= link_to "Settings", edit_user_registration_path %></li>
-  		<li class="divider"></li>
-  		<li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
-  	</ul>
-  </li>
+  <% if user_signed_in? %>
+    <li role="presentation" class="<%= active?(new_post_path) %>"><%= link_to "New Post", new_post_path %></li>
+    <li role="presentation" class="<%= active?(posts_path) %>"><%= link_to "Posts", posts_path %></li>
+    
+    <li class="pull-right dropdown">  
+    	<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+        Account <span class="caret"></span>
+      </a>
+    	<ul class="dropdown-menu">
+    		<li><%= link_to "Settings", edit_user_registration_path %></li>
+    		<li class="divider"></li>
+    		<li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+    	</ul>
+    </li>
+  <% end %>
 </ul>
