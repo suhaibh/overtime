@@ -106,9 +106,11 @@ describe 'navigate' do
 
     it "should delete post from index" do
       visit posts_path
-      click_link("delete-post-#{@post.id}")
 
-      expect(Post.count).to eq(0)
+      expect {
+        click_link("delete-post-#{@post.id}")
+      }.to change(Post, :count).by(-1)
+      
       expect(current_path).to eq(posts_path)
     end
   end
