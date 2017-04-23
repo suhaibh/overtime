@@ -14,6 +14,7 @@ class PostDashboard < Administrate::BaseDashboard
     date: Field::DateTime.with_options(searchable: false),
     created_at: Field::DateTime.with_options(searchable: false),
     updated_at: Field::DateTime.with_options(searchable: false),
+    status: Field::Text.with_options(searchable: true)
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -26,6 +27,7 @@ class PostDashboard < Administrate::BaseDashboard
     :id,
     :rationale,
     :date,
+    :status
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -37,6 +39,7 @@ class PostDashboard < Administrate::BaseDashboard
     :date,
     :created_at,
     :updated_at,
+    :status
   ].freeze
 
   # FORM_ATTRIBUTES
