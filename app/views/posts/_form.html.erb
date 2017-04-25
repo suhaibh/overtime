@@ -15,6 +15,8 @@
 		<%= f.label :date, class: 'label-control' %>
 		<%= f.date_field :date, class: 'form-control' %>
 	</div>
-	
+
+	<%= render partial: 'status', locals: {f: f} if current_user.admin? %>
+
 	<%= f.submit "Save", class: 'btn btn-primary' %>
 <% end %>

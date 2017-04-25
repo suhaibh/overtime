@@ -45,7 +45,11 @@ class PostsController < ApplicationController
 			@post = Post.find(params[:id])
 		end
 
+		def authenticate_admin
+			redirect_to root_path unless current_user.type == "AdminUser"
+		end
+
 		def post_params
-			params.require(:post).permit(:rationale, :date)
+			params.require(:post).permit(:rationale, :date, :status)
 		end
 end
