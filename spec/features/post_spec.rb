@@ -66,23 +66,15 @@ describe 'navigate' do
 
   describe "edit posts" do
     before do
-      @post = FactoryGirl.create(:post)
-      visit edit_post_path(@post)
-    end
-
-    it "has an edit page that can be reached" do
-      expect(page.status_code).to eq(200)
-      expect(page).to have_selector('form')
-    end
-
-    it "can be reached through the index page" do
-      visit posts_path
-      click_link("edit-post-#{@post.id}")
-
-      expect(page).to have_selector('form')
+      @edit_user = User.create(first_name: "Edit", last_name: "User", email: "edituser@example.com",
+                                password: "password", password_confirmation: "password")
+      login_as(@edit_user, scope: :user)
+      @edit_post = Post.create(date: Date.today, rationale: "Some rationale", user_id: @edit_user.id)
     end
 
     it "can update the post" do
+      visit edit_post_path(@edit_post)
+
       fill_in "post[rationale]", with: "Updated post"
       fill_in "post[date]", with: Date.yesterday
       click_button "Save"
@@ -91,11 +83,22 @@ describe 'navigate' do
     end
 
     it "should have rationale present" do
+      visit edit_post_path(@edit_post)
+
       fill_in "post[rationale]", with: ""
       fill_in "post[date]", with: Date.yesterday
       click_button "Save"
 
       expect(page).to have_selector('form')
+    end
+
+    it "cannot be edited by a non-authorized user" do
+      logout(:user)
+      user = FactoryGirl.create(:second_user)
+      login_as(user, scope: :user)
+
+      visit edit_post_path(@edit_post)
+      expect(current_path).to eq(posts_path)
     end
   end
   
