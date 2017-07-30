@@ -13,7 +13,8 @@
 		<%= yield %>
 	</div>
 
-	<%= js add_gritter(flash[:notice], title: "Overtime App", sticky: false, time: 2000) %>
+	<%= render 'layouts/alerts' %>
+
 </body>
 
 </html>
