@@ -1,9 +1,14 @@
 require 'rails_helper'
 
 describe 'navigate' do
+  let(:user) {FactoryGirl.create(:user)}
+
+  let(:post) do
+    Post.create(date: Date.today, rationale: "rationale", user_id: user.id)
+  end
+
   before do
-  	@user = FactoryGirl.create(:user)
-  	login_as(@user, scope: :user)
+  	login_as(user, scope: :user)
   end
  
  describe 'index' do
@@ -18,16 +23,14 @@ describe 'navigate' do
 
     it 'displays created posts' do
       post1 = FactoryGirl.create(:post)
-      post1.update(user_id: @user.id)
+      post1.update(user_id: user.id)
       post2 = FactoryGirl.create(:post_two)
-      post2.update(user_id: @user.id)
+      post2.update(user_id: user.id)
       visit posts_path
       expect(page).to have_content(/Sample|Other/)
     end
 
     it 'only lets users see their own posts' do
-      post1 = Post.create(rationale: "post1 rationale", date: Date.today, user_id: @user.id)
-      post2 = Post.create(rationale: "post2 rationale", date: Date.today, user_id: @user.id)
       other_user = FactoryGirl.create(:second_user)
       other_user_post = Post.create(rationale: "Another user posted this", date: Date.today, user_id: other_user.id)
       visit posts_path
@@ -77,15 +80,9 @@ describe 'navigate' do
   end
 
   describe "edit posts" do
-    before do
-      @edit_user = User.create(first_name: "Edit", last_name: "User", email: "edituser@example.com",
-                                password: "password", password_confirmation: "password")
-      login_as(@edit_user, scope: :user)
-      @edit_post = Post.create(date: Date.today, rationale: "Some rationale", user_id: @edit_user.id)
-    end
 
     it "can update the post" do
-      visit edit_post_path(@edit_post)
+      visit edit_post_path(post)
 
       fill_in "post[rationale]", with: "Updated post"
       fill_in "post[date]", with: Date.yesterday
@@ -95,7 +92,7 @@ describe 'navigate' do
     end
 
     it "should have rationale present" do
-      visit edit_post_path(@edit_post)
+      visit edit_post_path(post)
 
       fill_in "post[rationale]", with: ""
       fill_in "post[date]", with: Date.yesterday
@@ -109,22 +106,24 @@ describe 'navigate' do
       user = FactoryGirl.create(:second_user)
       login_as(user, scope: :user)
 
-      visit edit_post_path(@edit_post)
+      visit edit_post_path(post)
       expect(current_path).to eq(posts_path)
     end
   end
   
   describe 'delete posts' do
-    before do
-      @post = FactoryGirl.create(:post)
-      @post.update(user_id: @user.id)
-    end
 
     it "should delete post from index" do
+      logout(:user)
+
+      delete_user = FactoryGirl.create(:user)
+      login_as(delete_user, scope: :user)
+      post_to_delete = Post.create(date: Date.today, rationale: "to be deleted", user_id: delete_user.id)
+
       visit posts_path
 
       expect {
-        click_link("delete-post-#{@post.id}")
+        click_link("delete-post-#{post_to_delete.id}")
       }.to change(Post, :count).by(-1)
       
       expect(current_path).to eq(posts_path)
