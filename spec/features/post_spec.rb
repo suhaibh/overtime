@@ -18,9 +18,21 @@ describe 'navigate' do
 
     it 'displays created posts' do
       post1 = FactoryGirl.create(:post)
+      post1.update(user_id: @user.id)
       post2 = FactoryGirl.create(:post_two)
+      post2.update(user_id: @user.id)
       visit posts_path
       expect(page).to have_content(/Sample|Other/)
+    end
+
+    it 'only lets users see their own posts' do
+      post1 = Post.create(rationale: "post1 rationale", date: Date.today, user_id: @user.id)
+      post2 = Post.create(rationale: "post2 rationale", date: Date.today, user_id: @user.id)
+      other_user = FactoryGirl.create(:second_user)
+      other_user_post = Post.create(rationale: "Another user posted this", date: Date.today, user_id: other_user.id)
+      visit posts_path
+
+      expect(page).to_not have_content("Another user posted this")
     end
 
   end
@@ -105,6 +117,7 @@ describe 'navigate' do
   describe 'delete posts' do
     before do
       @post = FactoryGirl.create(:post)
+      @post.update(user_id: @user.id)
     end
 
     it "should delete post from index" do
