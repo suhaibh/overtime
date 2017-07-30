@@ -5,5 +5,5 @@ class Post < ActiveRecord::Base
 	validates :rationale, presence: true
 	validates :date, presence: true
 
-	
+	scope :posts_by, ->(user) {where(user_id: user.id) }
 end

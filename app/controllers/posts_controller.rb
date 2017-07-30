@@ -3,7 +3,7 @@ class PostsController < ApplicationController
 
 	def index
 		unless current_user.type == "AdminUser"
-			@posts = current_user.posts
+			@posts = Post.posts_by current_user
 		else
 			@posts = Post.all
 		end
