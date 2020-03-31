@@ -23,10 +23,20 @@ describe "approval workflow" do
 			logout(:user)
 			user = FactoryGirl.create(:user)
 			login_as(user, scope: :user)
-
 			visit edit_post_path(@post)
 
 			expect(current_path).to_not have_content(/Approved|Submitted|Rejected/)
+		end
+
+		it 'should not be editable by post creator after approval' do
+			logout(:user)
+			user = FactoryGirl.create(:user)
+			login_as(user, scope: :user)
+
+			@post.update(user_id: user.id, status: 'approved')
+			visit edit_post_path(@post)
+
+			expect(current_path).to eq(posts_path)
 		end
 	end
 

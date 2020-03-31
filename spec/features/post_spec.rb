@@ -27,6 +27,7 @@ describe 'navigate' do
       post2 = FactoryGirl.create(:post_two)
       post2.update(user_id: user.id)
       visit posts_path
+  
       expect(page).to have_content(/Sample|Other/)
     end
 
@@ -34,7 +35,7 @@ describe 'navigate' do
       other_user = FactoryGirl.create(:second_user)
       other_user_post = Post.create(rationale: "Another user posted this", date: Date.today, user_id: other_user.id)
       visit posts_path
-
+      
       expect(page).to_not have_content("Another user posted this")
     end
 
