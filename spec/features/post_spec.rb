@@ -125,7 +125,7 @@ describe 'navigate' do
       visit posts_path
 
       expect {
-        click_link("delete-post-#{post_to_delete.id}")
+        find("#delete-post-#{post_to_delete.id}").click
       }.to change(Post, :count).by(-1)
       
       expect(current_path).to eq(posts_path)
