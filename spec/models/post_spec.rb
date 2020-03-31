@@ -19,5 +19,15 @@ RSpec.describe Post, type: :model do
   		@post.date = ""
   		expect(@post).to be_invalid
   	end
+
+    it "requires overtime_request to be present" do
+      @post.overtime_request = nil
+      expect(@post).to be_invalid
+    end
+
+    it 'has an overtime_request greater than 0.0' do
+      @post.overtime_request = 0.0
+      expect(@post).to be_invalid
+    end
   end
 end

@@ -1,2 +1,18 @@
+<h3>Rationale</h3>
 <%= @post.rationale %>
-<%= @post.date %>
+
+<div class="post__show well">
+	<h3>Employee Name</h3>
+	<%= @post.user.full_name %>
+
+	<h3>Date Requested</h3>
+	<%= @post.date %>
+
+	<h3>Overtime Requested</h3>
+	<%= @post.overtime_request %> hours
+
+	<h3>Current Approval Status</h3>
+	<%= status_label(@post.status) %>
+</div>
+
+<%= link_to "Edit", edit_post_path(@post), class: 'btn btn-primary' if policy(@post).update? %>
