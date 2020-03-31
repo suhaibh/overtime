@@ -4,6 +4,6 @@
 	<td><%= truncate(post.rationale) %></td>
 	<td><%= post.date %> </td>
 	<td><%= status_label(post.status) %></td>
-	<td><%= link_to "Edit", edit_post_path(post), id: "edit-post-#{post.id}" %></td>
+	<td><%= link_to "Edit", edit_post_path(post), id: "edit-post-#{post.id}" if policy(post).update? %></td>
 	<td><%= link_to "Delete", post, method: :delete, id: "delete-post-#{post.id}" %></td>
 </tr>
