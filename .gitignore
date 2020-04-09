@@ -13,3 +13,4 @@
 /tmp
 
 /.env
+db/seeds.rb
