@@ -5,6 +5,8 @@ class AuditLog < ActiveRecord::Base
 
   after_initialize :set_defaults
 
+  paginates_per 10
+
   private
   	def set_defaults
   		self.start_date ||= (Date.today - 6.days)

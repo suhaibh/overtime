@@ -3,9 +3,9 @@ class PostsController < ApplicationController
 
 	def index
 		unless current_user.type == "AdminUser"
-			@posts = Post.posts_by current_user
+			@posts = Post.posts_by(current_user).page params[:page]
 		else
-			@posts = Post.all
+			@posts = Post.all.page params[:page]
 		end
 	end
 
