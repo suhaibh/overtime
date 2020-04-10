@@ -1,10 +1,6 @@
 require 'rails_helper'
 
 describe "AuditLog feature" do
-	
-	before do
-		let(:audit_log) { FactoryGirl.create(:audit_log) }
-	end
 
 	describe 'index' do
 		it "can be reachd by an admin user" do
