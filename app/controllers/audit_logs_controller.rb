@@ -2,8 +2,6 @@ class AuditLogsController < ApplicationController
 	def index
 		if authorize AuditLog
 			@audit_logs = AuditLog.all
-		else
-			redirect_to root_path
 		end
 	end
 
