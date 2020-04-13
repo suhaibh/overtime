@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-	before_action :set_post, only: [:show, :edit, :update, :destroy]
+	before_action :set_post, only: [:show, :edit, :update, :destroy, :approve]
 
 	def index
 		unless current_user.type == "AdminUser"
@@ -38,6 +38,11 @@ class PostsController < ApplicationController
 		else
 			render 'edit'
 		end
+	end
+
+	def approve
+		@post.approved!
+		redirect_to root_path, notice: "Post approved"
 	end
 
 	def destroy

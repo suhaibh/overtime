@@ -1,0 +1,18 @@
+<% pending_approvals.each do |post| %>
+	
+		<div class="homepage-block col-md-3"> 
+			<h4>Employee: <%= post.user.full_name%></h4>
+			<h5>Rationale: <%= truncate(post.rationale, length: 50) %></h5>
+			<h6>Date Submitted: <%= post.date %></h6>
+			<h6>Status: <%= status_label(post.status)%></h6>
+			<div class="row">
+				<div class="col-md-6">
+					<%= link_to 'Approve', approve_post_path(post), method: :put, class: "btn btn-success btn-block", id: "approval-link-#{post.id}" %>
+				</div>
+				<div class="col-md-6">
+					<%= link_to 'Review', edit_post_path(post), class: "btn btn-warning btn-block" %>
+				</div>
+			</div>
+		</div>
+	
+<% end %>

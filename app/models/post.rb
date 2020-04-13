@@ -10,4 +10,5 @@ class Post < ActiveRecord::Base
 	scope :posts_by, ->(user) {where(user_id: user.id) }
 
 	paginates_per 10
+
 end

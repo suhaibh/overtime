@@ -24,6 +24,6 @@ describe "admin dashboard" do
 
 		expect(page.status_code).to eq(200)
 		expect(page.current_path).to eq(root_path)
-		expect(page).to have_content("Homepage")
+		expect(page).to have_content("Employee")
 	end
 end
