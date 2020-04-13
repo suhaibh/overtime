@@ -1,0 +1,7 @@
+<% unless pending_audit_confirmations.empty? %>
+	<% pending_audit_confirmations.each do |audit| %>
+		<%= link_to "I confirm that I did not perform any overtime for the week of #{audit.start_date}", confirm_audit_log_path(audit), method: :put, class: "btn btn-primary btn-block btn-lg", id: "audit-confirmation-link-#{audit.id}", data: {confirm: "Are you sure you want to confirm that you did not perform any overtime?"} %>
+	<% end %>
+<% else %>
+	<h4>No pending confirmations</h4>
+<% end %>

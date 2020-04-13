@@ -20,7 +20,7 @@ describe "approval workflow" do
 		end
 
 		it 'can not be edited by a non-admin' do
-			logout(:user)
+			logout(@admin_user)
 			user = FactoryGirl.create(:user)
 			login_as(user, scope: :user)
 			visit edit_post_path(@post)
@@ -29,7 +29,7 @@ describe "approval workflow" do
 		end
 
 		it 'should not be editable by post creator after approval' do
-			logout(:user)
+			logout(@admin_user)
 			user = FactoryGirl.create(:user)
 			login_as(user, scope: :user)
 
