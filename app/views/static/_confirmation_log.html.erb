@@ -1,0 +1,8 @@
+<% recent_audit_items.each do |audit_log| %>
+	<div class="homepage-block col-md-3">	
+		<h4><%= audit_log.user.full_name %></h4>
+		<h5>Week starting: <%= audit_log.start_date %></h5>
+		<h5>Confirmed at: <%= audit_log.end_date || "INCOMPLETE "%></h5>
+		<h5>Status: <%= status_label(audit_log.status) %></h5>
+	</div>
+<% end %>

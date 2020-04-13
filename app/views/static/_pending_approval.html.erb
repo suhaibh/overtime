@@ -1,7 +1,7 @@
 <% pending_approvals.each do |post| %>
 	
 		<div class="homepage-block col-md-3"> 
-			<h4>Employee: <%= post.user.full_name%></h4>
+			<h4>Employee: <%= post.user.full_name %></h4>
 			<h5>Rationale: <%= truncate(post.rationale, length: 50) %></h5>
 			<h6>Date Submitted: <%= post.date %></h6>
 			<h6>Status: <%= status_label(post.status)%></h6>
