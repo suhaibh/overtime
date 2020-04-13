@@ -29,6 +29,6 @@ end
 
 puts "100 posts created"
 
-50.times do |audit_log|
-	AuditLog.create(user_id: @user.id, status: 0, start_date: (Date.today - 6.days))
-end
+AuditLog.create(user_id: @user.id, status: 0, start_date: (Date.today - 6.days))
+AuditLog.create(user_id: @user.id, status: 0, start_date: (1.week.ago - 6.days))
+AuditLog.create(user_id: @user.id, status: 0, start_date: (2.weeks.ago - 6.days))
