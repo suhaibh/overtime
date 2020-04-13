@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe "Homepage features" do
+describe "admin homepage features" do
 	before do
 		@post = FactoryGirl.create(:post)
 	end
@@ -20,5 +20,21 @@ describe "Homepage features" do
 
 		put :approve, id: @post.id
 		expect(@post.reload.status).to eq("submitted")
+	end
+end
+
+describe "employee homepage features" do
+	before do
+		@user = FactoryGirl.create(:user)
+		@audit = FactoryGirl.create(:audit_log)
+	end
+
+	it "allows employees to confirm audit log from homepage" do
+		@audit.update(user_id: @user.id)
+		login_as(@user)
+
+		visit root_path
+		find("#audit-confirmation-link-#{@audit.id}").click
+		expect(@audit.reload.status).to eq("confirmed")
 	end
 end

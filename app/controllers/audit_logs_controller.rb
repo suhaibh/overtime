@@ -5,6 +5,13 @@ class AuditLogsController < ApplicationController
 		end
 	end
 
+	def confirm
+		@audit_log = AuditLog.find(params[:id])
+		authorize @audit_log
+		@audit_log.confirmed!
+		redirect_to root_path, notice: "Audit confirmed for week of: #{@audit_log.start_date}"
+	end
+
 	private
 
 		def user_not_authorized

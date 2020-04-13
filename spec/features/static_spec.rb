@@ -8,7 +8,7 @@ describe 'navigate' do
   describe 'homepage' do
     it 'can be reached successfully' do
       visit root_path
-      expect(page).to have_content("Employee")
+      expect(page).to have_content("Confirmation")
     end
   end
 end
