@@ -1,0 +1,26 @@
+9e09c1902face386d3167d692c85e95db8b29dd6		branch 'gbw-preload-has-many' of git://github.com/greetpoint/administrate
+dd0b6ead1902e60992e33fdd09bd23ad9a4506d8		branch 'gw-clear-search' of git://github.com/greetpoint/administrate
+47540d21aa81f13998b5550715d7bf6fc5e3624d		branch 'gw-edit-timeout' of git://github.com/greetpoint/administrate
+eac0467347c8f79a7a4ade26b66552f2af8f3761		branch 'gw-generate-layout' of git://github.com/greetpoint/administrate
+95143856373c77f830496fd5de350eefab3888c8		branch 'gw-has-one-form' of git://github.com/greetpoint/administrate
+f2074361385b3fbc344db3deba8cce7bdf535be1		branch 'gw-permitted-attrs' of git://github.com/greetpoint/administrate
+cf88b5b075b2b590b502919b956c2e4d45dd59af		branch 'gw-selective-routes' of git://github.com/greetpoint/administrate
+9623bad92edd8caa51eb27ab34d90eac0a1953aa		branch 'gw-update-custom-field-docs' of git://github.com/greetpoint/administrate
+36be59655c43ca9121c51e58fdc161241e681074		branch 'has-many-arrays' of git://github.com/greetpoint/administrate
+092d55f20ed90ba65c6a26a9dcddab2c3f63482a		branch 'jro-gem-readme' of git://github.com/greetpoint/administrate
+9505b9229005280749dcc61857a5146b34320d2a		branch 'jro-only-link-to-whitelisted-dashboards' of git://github.com/greetpoint/administrate
+5f0e1917d02af3d5a69da101827a2a1f64eca088		branch 'master' of git://github.com/greetpoint/administrate
+40ab7cef85f609d1eff5eb91c5732c58946a0570		branch 'merge' of git://github.com/greetpoint/administrate
+3ac84a8820a72ffc8ed6568ca899bcc9a8e0cdba		branch 'rails5' of git://github.com/greetpoint/administrate
+fb6cdb0777599c81ba96fbbd3162fc1e024d50e6		branch 'release' of git://github.com/greetpoint/administrate
+9f796591dbebc75b2d7cff1198ac23e9e767d620		branch 'tc-inflections' of git://github.com/greetpoint/administrate
+cb2ff4c1ee09049d0eab19ea098957c4ce847b5a		branch 'tg-form-actions-margin' of git://github.com/greetpoint/administrate
+e1d7613caf9830f0aa5e560462742abd28a94f8e		branch 'tg-search-input' of git://github.com/greetpoint/administrate
+f7fc63f8d197584b7db1eeb802d09de872b440ab		branch 'update-template' of git://github.com/greetpoint/administrate
+b49dc9a59543fedc9a84141a97988e73f2a9e783	not-for-merge	tag 'v0.1.0' of git://github.com/greetpoint/administrate
+b7a362b67fb14d5f87e56804cd32510b624221b0	not-for-merge	tag 'v0.1.1' of git://github.com/greetpoint/administrate
+e3a906dd3f8503977deff60664b6a4d0be5d48dd	not-for-merge	tag 'v0.1.2' of git://github.com/greetpoint/administrate
+1024283df83795be459f82aeafd45b982ed1ec6a	not-for-merge	tag 'v0.1.3' of git://github.com/greetpoint/administrate
+7c0d1f7367c2edbc843997f07a5dbae03e05575f	not-for-merge	tag 'v0.1.4' of git://github.com/greetpoint/administrate
+463af26c1fb4e4cfd1ddb4f1c0bb5a2fcfba6471	not-for-merge	tag 'v0.1.5' of git://github.com/greetpoint/administrate
+53457a6eb98eed54a114caa52d33aa0c25afacf8	not-for-merge	tag 'v0.2.0' of git://github.com/greetpoint/administrate

@@ -1,0 +1,22 @@
+.pending-homepage {
+	margin: 1.25rem 0;
+	border-radius: 3px;
+	background-color: #e3e3e3;
+	padding: 1.25rem;
+}
+
+.homepage-block {
+	margin: 1rem 3rem;
+	padding: 1rem;
+	background-color: #1D3C91;
+	color: white;
+	border-radius: 3px;
+}
+
+.homepage-block:hover {
+	background-color: #172b63;
+}
+
+.pending-submissions {
+	border-radius: 3px;
+}

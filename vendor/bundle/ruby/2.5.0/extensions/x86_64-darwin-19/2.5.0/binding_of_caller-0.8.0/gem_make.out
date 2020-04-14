@@ -1,0 +1,16 @@
+current directory: /Users/suhaib/workspace/UdemyRails/udemy_rails_projects/Overtime/vendor/bundle/ruby/2.5.0/gems/binding_of_caller-0.8.0/ext/binding_of_caller
+/Users/suhaib/.rbenv/versions/2.5.0/bin/ruby -I /Users/suhaib/.rbenv/versions/2.5.0/lib/ruby/site_ruby/2.5.0 -r ./siteconf20200413-20299-ijma1.rb extconf.rb
+
+current directory: /Users/suhaib/workspace/UdemyRails/udemy_rails_projects/Overtime/vendor/bundle/ruby/2.5.0/gems/binding_of_caller-0.8.0/ext/binding_of_caller
+make "DESTDIR=" clean
+make: *** No rule to make target `clean'.  Stop.
+
+current directory: /Users/suhaib/workspace/UdemyRails/udemy_rails_projects/Overtime/vendor/bundle/ruby/2.5.0/gems/binding_of_caller-0.8.0/ext/binding_of_caller
+make "DESTDIR="
+echo "Nada."
+Nada.
+
+current directory: /Users/suhaib/workspace/UdemyRails/udemy_rails_projects/Overtime/vendor/bundle/ruby/2.5.0/gems/binding_of_caller-0.8.0/ext/binding_of_caller
+make "DESTDIR=" install
+echo "Nada."
+Nada.

@@ -1,0 +1,15 @@
+current directory: /Users/suhaib/workspace/UdemyRails/udemy_rails_projects/Overtime/vendor/bundle/ruby/2.5.0/gems/websocket-driver-0.6.5/ext/websocket-driver
+/Users/suhaib/.rbenv/versions/2.5.0/bin/ruby -I /Users/suhaib/.rbenv/versions/2.5.0/lib/ruby/site_ruby/2.5.0 -r ./siteconf20200413-61394-1yl4033.rb extconf.rb
+creating Makefile
+
+current directory: /Users/suhaib/workspace/UdemyRails/udemy_rails_projects/Overtime/vendor/bundle/ruby/2.5.0/gems/websocket-driver-0.6.5/ext/websocket-driver
+make "DESTDIR=" clean
+
+current directory: /Users/suhaib/workspace/UdemyRails/udemy_rails_projects/Overtime/vendor/bundle/ruby/2.5.0/gems/websocket-driver-0.6.5/ext/websocket-driver
+make "DESTDIR="
+compiling websocket_mask.c
+linking shared-object websocket_mask.bundle
+
+current directory: /Users/suhaib/workspace/UdemyRails/udemy_rails_projects/Overtime/vendor/bundle/ruby/2.5.0/gems/websocket-driver-0.6.5/ext/websocket-driver
+make "DESTDIR=" install
+/usr/local/bin/ginstall -c -m 0755 websocket_mask.bundle ./.gem.20200413-61394-ejpp75

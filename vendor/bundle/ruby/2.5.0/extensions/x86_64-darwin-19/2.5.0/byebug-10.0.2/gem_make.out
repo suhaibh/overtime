@@ -1,0 +1,19 @@
+current directory: /Users/suhaib/workspace/UdemyRails/udemy_rails_projects/Overtime/vendor/bundle/ruby/2.5.0/gems/byebug-10.0.2/ext/byebug
+/Users/suhaib/.rbenv/versions/2.5.0/bin/ruby -I /Users/suhaib/.rbenv/versions/2.5.0/lib/ruby/site_ruby/2.5.0 -r ./siteconf20200413-20299-bdmoj8.rb extconf.rb
+creating Makefile
+
+current directory: /Users/suhaib/workspace/UdemyRails/udemy_rails_projects/Overtime/vendor/bundle/ruby/2.5.0/gems/byebug-10.0.2/ext/byebug
+make "DESTDIR=" clean
+
+current directory: /Users/suhaib/workspace/UdemyRails/udemy_rails_projects/Overtime/vendor/bundle/ruby/2.5.0/gems/byebug-10.0.2/ext/byebug
+make "DESTDIR="
+compiling breakpoint.c
+compiling byebug.c
+compiling context.c
+compiling locker.c
+compiling threads.c
+linking shared-object byebug/byebug.bundle
+
+current directory: /Users/suhaib/workspace/UdemyRails/udemy_rails_projects/Overtime/vendor/bundle/ruby/2.5.0/gems/byebug-10.0.2/ext/byebug
+make "DESTDIR=" install
+/usr/local/bin/ginstall -c -m 0755 byebug.bundle ./.gem.20200413-20299-8g9462/byebug

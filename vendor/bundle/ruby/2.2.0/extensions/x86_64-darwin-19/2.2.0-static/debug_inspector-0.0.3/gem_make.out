@@ -1,0 +1,11 @@
+/Users/suhaib/.rbenv/versions/2.2.4/bin/ruby -r ./siteconf20200413-40723-iyhwk0.rb extconf.rb
+creating Makefile
+
+make "DESTDIR=" clean
+
+make "DESTDIR="
+compiling debug_inspector.c
+linking shared-object debug_inspector.bundle
+
+make "DESTDIR=" install
+/usr/local/bin/ginstall -c -m 0755 debug_inspector.bundle ./.gem.20200413-40723-19xi2p6

@@ -3,8 +3,8 @@
 @import "gritter";
 @import "bourbon";
 @import "posts.scss";
-@import "admin_homepage.css.scss";
-@import "employee_homepage.css.scss";
+@import "admin_homepage.css";
+@import "employee_homepage.css";
 
 .field_with_errors {
   @extend .has-error;
