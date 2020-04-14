@@ -11,13 +11,22 @@ class Post < ActiveRecord::Base
 
 	paginates_per 10
 
-	after_save :update_audit_log
+	after_save :confirm_audit_log, if: :approved?
+	after_save :unconfirm_audit_log, if: :rejected?
 
 	private
-		def update_audit_log
+		def confirm_audit_log
 			audit_log = AuditLog.where(user_id: self.user_id, start_date: (self.date - 7.days..self.date)).last
 			if audit_log
 				audit_log.confirmed!
+			end
+		end
+
+		def unconfirm_audit_log
+			audit_log = AuditLog.where(user_id: self.user_id, start_date: (self.date - 7.days..self.date)).last
+			if audit_log
+				audit_log.pending!
+				audit_log.update(end_date: "")
 			end
 		end
 
