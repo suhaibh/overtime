@@ -13,14 +13,6 @@ describe "admin homepage features" do
 		find("#approval-link-#{@post.id}").click
 		expect(@post.reload.status).to eq("approved")
 	end
-
-	xit "does not allow regular users to approve overtime" do
-		user = FactoryGirl.create(:user)
-		login_as(user)
-
-		put :approve, id: @post.id
-		expect(@post.reload.status).to eq("submitted")
-	end
 end
 
 describe "employee homepage features" do
