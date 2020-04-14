@@ -32,3 +32,4 @@ AuditLog.create!(user_id: @employee.id, status: 0, start_date: (2.weeks.ago - 6.
 end
 
 puts "100 posts created"
+
