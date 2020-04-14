@@ -11,7 +11,7 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
-gem 'devise', '4.4.0'
+gem 'devise', '4.7.1'
 gem "gritter", "1.2.0"
 gem "administrate", github: 'greetpoint/administrate', branch: 'rails5'
 gem 'bourbon'
