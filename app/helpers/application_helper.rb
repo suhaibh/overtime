@@ -11,6 +11,18 @@ module ApplicationHelper
 		["AdminUser"]
 	end
 
+	def employee_types
+		["Employee"]
+	end
+
+	def employee?
+		employee_types.include?(current_user.type)
+	end
+
+	def admin?
+		admin_types.include?(current_user.type)
+	end
+
 	private 
 		def status_span_generator(status)
 			case status
