@@ -10,7 +10,7 @@ class PostDashboard < Administrate::BaseDashboard
   ATTRIBUTE_TYPES = {
     user: Field::BelongsTo.with_options(searchable: false),
     id: Field::Number.with_options(searchable: false),
-    rationale: Field::Text.with_options(searchable: true),
+    work_performed: Field::Text.with_options(searchable: true),
     date: Field::DateTime.with_options(searchable: false),
     created_at: Field::DateTime.with_options(searchable: false),
     updated_at: Field::DateTime.with_options(searchable: false),
@@ -25,7 +25,7 @@ class PostDashboard < Administrate::BaseDashboard
   COLLECTION_ATTRIBUTES = [
     :user,
     :id,
-    :rationale,
+    :work_performed,
     :date,
     :status
   ].freeze
@@ -35,7 +35,7 @@ class PostDashboard < Administrate::BaseDashboard
   SHOW_PAGE_ATTRIBUTES = [
     :user,
     :id,
-    :rationale,
+    :work_performed,
     :date,
     :created_at,
     :updated_at,
@@ -47,7 +47,7 @@ class PostDashboard < Administrate::BaseDashboard
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
     :user,
-    :rationale,
+    :work_performed,
     :date,
   ].freeze
 

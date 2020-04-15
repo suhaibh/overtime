@@ -4,7 +4,7 @@ describe 'navigate' do
   let(:user) {FactoryGirl.create(:user)}
 
   let(:post) do
-    Post.create(date: Date.today, rationale: "rationale", user_id: user.id, daily_hours: 3.5)
+    Post.create(date: Date.today, work_performed: "work performed", user_id: user.id, daily_hours: 3.5)
   end
 
   before do
@@ -33,7 +33,7 @@ describe 'navigate' do
 
     it 'only lets users see their own posts' do
       other_user = FactoryGirl.create(:second_user)
-      other_user_post = Post.create(rationale: "Another user posted this", date: Date.today, user_id: other_user.id, daily_hours: 3.5)
+      other_user_post = Post.create(work_performed: "Another user posted this", date: Date.today, user_id: other_user.id, daily_hours: 3.5)
       visit posts_path
       
       expect(page).to_not have_content("Another user posted this")
@@ -52,7 +52,7 @@ describe 'navigate' do
   	end
 
   	it "can create a post through form" do
-  		fill_in "post[rationale]", with: "sample rationale"
+  		fill_in "post[work_performed]", with: "sample work performed"
   		fill_in "post[date]", with: Date.today
       fill_in "post[daily_hours]", with: 12.5
   		expect { click_on "Save" }.to change(Post, :count).by(1)
@@ -60,22 +60,22 @@ describe 'navigate' do
   	end
 
   	it "will have a user associated with it" do
-  		fill_in "post[rationale]", with: "User associated"
+  		fill_in "post[work_performed]", with: "User associated"
   		fill_in "post[date]", with: Date.today
       fill_in "post[daily_hours]", with: 7.5
   		click_button "Save"
 
-  		expect(User.last.posts.last.rationale).to eq("User associated")
+  		expect(User.last.posts.last.work_performed).to eq("User associated")
   	end
 
-  	it "renders new if rationale is blank" do
+  	it "renders new if work_performed is blank" do
   		fill_in "post[date]", with: Date.today
   		click_button "Save"
   		expect(page).to have_selector('form')
   	end
 
   	it "renders new if date is blank" do
-  		fill_in "post[rationale]", with: "sample rationale"
+  		fill_in "post[work_performed]", with: "sample work performed"
   		click_button "Save"
   		expect(page).to have_selector('form')
   	end
@@ -86,17 +86,17 @@ describe 'navigate' do
     it "can update the post" do
       visit edit_post_path(post)
 
-      fill_in "post[rationale]", with: "Updated post"
+      fill_in "post[work_performed]", with: "Updated post"
       fill_in "post[date]", with: Date.yesterday
       click_button "Save"
 
       expect(page).to have_content(/Updated post|#{Date.yesterday}/)
     end
 
-    it "should have rationale present" do
+    it "should have work_performed present" do
       visit edit_post_path(post)
 
-      fill_in "post[rationale]", with: ""
+      fill_in "post[work_performed]", with: ""
       fill_in "post[date]", with: Date.yesterday
       click_button "Save"
 
@@ -120,7 +120,7 @@ describe 'navigate' do
 
       delete_user = FactoryGirl.create(:user)
       login_as(delete_user, scope: :user)
-      post_to_delete = Post.create(date: Date.today, rationale: "to be deleted", user_id: delete_user.id, daily_hours: 3.5)
+      post_to_delete = Post.create(date: Date.today, work_performed: "to be deleted", user_id: delete_user.id, daily_hours: 3.5)
 
       visit posts_path
 

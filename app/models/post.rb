@@ -2,7 +2,7 @@ class Post < ActiveRecord::Base
 	belongs_to :user
 	enum status: {submitted: 0, approved: 1, rejected: 2}
 
-	validates :rationale, presence: true
+	validates :work_performed, presence: true
 	validates :date, presence: true
 	validates :daily_hours, presence: true
 	validates :daily_hours, numericality: { greater_than: 0.0 }

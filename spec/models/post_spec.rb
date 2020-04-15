@@ -10,8 +10,8 @@ RSpec.describe Post, type: :model do
       expect(@post).to be_valid
   	end
 
-  	it "requires rationale to be present" do
-  		@post.rationale = ""
+  	it "requires work_performed to be present" do
+  		@post.work_performed = ""
   		expect(@post).to be_invalid
   	end
 

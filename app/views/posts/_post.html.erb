@@ -1,6 +1,6 @@
 <tr>
 	<td><%= post.daily_hours %></td>
-	<td class="hidden-xs"><%= truncate(post.rationale) %></td>
+	<td class="hidden-xs"><%= truncate(post.work_performed) %></td>
 	<td><%= link_to post.date, post_path(post) %> </td>
 	<td><%= status_label(post.status) %></td>
 	<td><%= link_to '', edit_post_path(post), class: "glyphicon glyphicon-pencil icon icon-edit", id: "edit-post-#{post.id}" %></td>
