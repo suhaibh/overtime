@@ -4,7 +4,7 @@ describe 'navigate' do
   let(:user) {FactoryGirl.create(:user)}
 
   let(:post) do
-    Post.create(date: Date.today, rationale: "rationale", user_id: user.id, overtime_request: 3.5)
+    Post.create(date: Date.today, rationale: "rationale", user_id: user.id, daily_hours: 3.5)
   end
 
   before do
@@ -33,7 +33,7 @@ describe 'navigate' do
 
     it 'only lets users see their own posts' do
       other_user = FactoryGirl.create(:second_user)
-      other_user_post = Post.create(rationale: "Another user posted this", date: Date.today, user_id: other_user.id, overtime_request: 3.5)
+      other_user_post = Post.create(rationale: "Another user posted this", date: Date.today, user_id: other_user.id, daily_hours: 3.5)
       visit posts_path
       
       expect(page).to_not have_content("Another user posted this")
@@ -54,7 +54,7 @@ describe 'navigate' do
   	it "can create a post through form" do
   		fill_in "post[rationale]", with: "sample rationale"
   		fill_in "post[date]", with: Date.today
-      fill_in "post[overtime_request]", with: 4.5
+      fill_in "post[daily_hours]", with: 12.5
   		expect { click_on "Save" }.to change(Post, :count).by(1)
   		
   	end
@@ -62,7 +62,7 @@ describe 'navigate' do
   	it "will have a user associated with it" do
   		fill_in "post[rationale]", with: "User associated"
   		fill_in "post[date]", with: Date.today
-      fill_in "post[overtime_request]", with: 4.5
+      fill_in "post[daily_hours]", with: 7.5
   		click_button "Save"
 
   		expect(User.last.posts.last.rationale).to eq("User associated")
@@ -120,7 +120,7 @@ describe 'navigate' do
 
       delete_user = FactoryGirl.create(:user)
       login_as(delete_user, scope: :user)
-      post_to_delete = Post.create(date: Date.today, rationale: "to be deleted", user_id: delete_user.id, overtime_request: 3.5)
+      post_to_delete = Post.create(date: Date.today, rationale: "to be deleted", user_id: delete_user.id, daily_hours: 3.5)
 
       visit posts_path
 

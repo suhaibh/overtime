@@ -4,8 +4,8 @@ class Post < ActiveRecord::Base
 
 	validates :rationale, presence: true
 	validates :date, presence: true
-	validates :overtime_request, presence: true
-	validates :overtime_request, numericality: { greater_than: 0.0 }
+	validates :daily_hours, presence: true
+	validates :daily_hours, numericality: { greater_than: 0.0 }
 
 	scope :posts_by, ->(user) {where(user_id: user.id) }
 
