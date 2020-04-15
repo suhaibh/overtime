@@ -52,6 +52,26 @@ RSpec.describe User, type: :model do
       @user.phone = "55-55a5c 5"
       expect(@user).to be_invalid
     end
+
+    it "should require company" do
+      @user.company = ""
+      expect(@user).to be_invalid
+    end
+
+    it "should require ssn" do
+      @user.ssn = ""
+      expect(@user).to be_invalid
+    end
+
+    it "should require ssn to be 4 digits" do
+      @user.ssn = 24567
+      expect(@user).to be_invalid
+    end
+
+    it "should require ssn to only be numbers" do
+      @user.ssn = "nums"
+      expect(@user).to be_invalid
+    end
   end
 
   describe "relationship between admins and employees" do

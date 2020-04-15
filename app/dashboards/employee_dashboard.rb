@@ -25,7 +25,9 @@ class EmployeeDashboard < Administrate::BaseDashboard
     type: Field::String.with_options(searchable: false),
     created_at: Field::DateTime.with_options(searchable: false),
     updated_at: Field::DateTime.with_options(searchable: false),
-    phone: Field::String.with_options(searchable: false)
+    phone: Field::String.with_options(searchable: false),
+    ssn: Field::Number.with_options(searchable: true),
+    company: Field::String.with_options(searchable: false)
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -34,36 +36,37 @@ class EmployeeDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
+    :ssn,
     :posts,
     :email,
-    :type,
+    :type
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = [
-    :posts,
-    :id,
-    :email,
-    :phone,
-    :sign_in_count,
-    :last_sign_in_at,
-    :first_name,
-    :last_name,
-    :type,
-    :created_at,
-    :updated_at
+   :ssn,
+   :first_name,
+   :last_name,
+   :company,
+   :posts,
+   :email,
+   :phone,
+   :type
   ].freeze
 
   # FORM_ATTRIBUTES
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
-    :email,
-    :password,
+    :ssn,
     :first_name,
     :last_name,
-    :phone
+    :company,
+    :email,
+    :password,
+    :phone,
+    :type
   ].freeze
 
   # Overwrite this method to customize how users are displayed

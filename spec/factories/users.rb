@@ -4,29 +4,35 @@ FactoryGirl.define do
 	end
 
 	factory :user do
-		email 					{ generate :email }
-		password 				"password"
+		email 									{ generate :email }
+		password 								"password"
 		password_confirmation 	"password"
-		first_name				"Jon"
-		last_name				"Snow"
-		phone					"5555555555"
+		first_name							"Jon"
+		last_name								"Snow"
+		phone										"5555555555"
+		company									"Acme Corp"
+		ssn											"1234"
 	end
 
 	factory :admin_user, class: "AdminUser" do
-		email 					{ generate :email }
-		password 				"password"
+		email 									{ generate :email }
+		password 								"password"
 		password_confirmation 	"password"
-		first_name 				"Admin"
-		last_name 				"User"
-		phone					"5555555555"
+		first_name 							"Admin"
+		last_name 							"User"
+		phone										"5555555555"
+		company									"Acme Corp"
+		ssn											"1234"
 	end
 
 	factory :second_user, class: "User" do
-		email					{ generate :email }
-		password 				"password"
+		email										{ generate :email }
+		password 								"password"
 		password_confirmation 	"password"
-		first_name				"Ned"
-		last_name				"Stark"
-		phone					"5555555555"
+		first_name							"Ned"
+		last_name								"Stark"
+		phone										"5555555555"
+		company									"Acme Corp"
+		ssn											"1234"
 	end
 end
