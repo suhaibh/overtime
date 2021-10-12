@@ -16,7 +16,7 @@ gem "gritter", "1.2.0"
 gem "administrate", github: 'greetpoint/administrate', branch: 'rails5'
 gem 'bourbon'
 gem 'pundit', '~> 1.1'
-gem 'puma', '~> 3.4'
+gem 'puma', '~> 5.5'
 gem 'twilio-ruby', '~> 4.11', '>= 4.11.1'
 gem 'kaminari', '~> 0.17.0'
 gem 'rails_12factor'
