@@ -1,5 +1,5 @@
 GIT
-  remote: git://github.com/greetpoint/administrate.git
+  remote: https://github.com/greetpoint/administrate.git
   revision: 3ac84a8820a72ffc8ed6568ca899bcc9a8e0cdba
   branch: rails5
   specs:
@@ -133,17 +133,18 @@ GEM
       mini_mime (>= 0.1.1)
     method_source (1.0.0)
     mini_mime (1.0.2)
-    mini_portile2 (2.4.0)
+    mini_portile2 (2.8.0)
     minitest (5.14.0)
-    momentjs-rails (2.20.1)
+    momentjs-rails (2.29.4.1)
       railties (>= 3.1)
     multi_json (1.14.1)
     neat (1.7.4)
       bourbon (>= 4.0)
       sass (>= 3.3)
     nio4r (2.5.2)
-    nokogiri (1.10.9)
-      mini_portile2 (~> 2.4.0)
+    nokogiri (1.13.9)
+      mini_portile2 (~> 2.8.0)
+      racc (~> 1.4)
     normalize-rails (3.0.3)
     orm_adapter (0.5.0)
     pg (0.21.0)
@@ -151,6 +152,7 @@ GEM
     puma (3.12.4)
     pundit (1.1.0)
       activesupport (>= 3.0.0)
+    racc (1.6.0)
     rack (2.2.2)
     rack-test (0.6.3)
       rack (>= 1.0)
